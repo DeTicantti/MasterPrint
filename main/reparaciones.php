@@ -146,7 +146,7 @@ $error = array();
                         <?php
                         if ($res->num_rows>0) {
                             //$res->bind_result($rep_id,$cliente,$impresora,$modelo,$serial,$falla,$status,$tecnico,$diagnostico,$costo,$fechai,$aviso,$garantia,$fechaf);
-                            $res->bind_result($cliente,$apellido,$telefono,$rep_id,$imp_marca,$imp_modelo,$serial,$diagnostico,$costo,$fecha,$trabajador);
+                            $res->bind_result($cliente,$apellido,$telefono,$rep_id,$imp_marca,$imp_modelo,$serial,$diagnostico,$costo,$fecha,$trabajador,$entrega);
                         while ($res->fetch()) { ?>
                             
                             <tr>
@@ -182,6 +182,12 @@ $error = array();
                                  
                                 <td>
                                 <?php echo $diagnostico;?>
+                                </div>
+                                <div class="action grid center">
+                                <div class="sucessmn ns">
+                                    <a href="db/rep/statusg.php?id= <?php echo $rep_id ;?>"><h3>  G</h3></a>
+                                </div>
+                                </div>
                                 <!--<form action="db/rep/modificar.php" method="POST">
                                     <textarea name="diagnostico" id="" cols="10" rows="1"></textarea></br>
                                     <input type="number" value="<?php echo $rep_id?>" name="id" hidden>
@@ -198,7 +204,15 @@ $error = array();
                                 </form>-->
                             
                                 </td>
-                                <td> <?php echo $fecha;?></td>
+                                
+                                <td> 
+                                <h5 class="sendRed">Recivida</h5>    
+                                <?php echo $fecha;?>
+                                <h5 class="send">Entregada</h5>
+                                <?php echo $entrega;?>
+
+                            </td>
+                                
                                 <!--<td>
                                 <?php //echo $aviso;?>
                                 <form action="db/rep/modificarA.php" method="POST">

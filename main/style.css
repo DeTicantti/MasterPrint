@@ -106,6 +106,41 @@ h2{
         display: none;
     }
 }
+.sendinline{
+    background: #558bf0;
+    /*padding-bottom: -25px;*/
+    display: inline-block;
+    margin-top: 8px;
+    color: #077c30;;
+    border-radius: 18%;
+    padding: 1.2;
+    width: 2.8rem;
+    height: 2.8rem;
+}
+
+.sendinlinered{
+    background: #f11515;
+    /*padding-bottom: -25px;*/
+    display: inline-block;
+    margin-top: 8px;
+    color: #077c30;;
+    border-radius: 18%;
+    padding: 1.2;
+    width: 2.8rem;
+    height: 2.8rem;
+}
+
+.sendinlinegreen{
+    background: #077c30;
+    /*padding-bottom: -25px;*/
+    display: inline-block;
+    margin-top: 8px;
+    color: #0dee2b;
+    border-radius: 18%;
+    padding: 1.2;
+    min-width: 2.8rem;
+    height: 2.8rem;
+}
 
 .send{
     background: #558bf0;
@@ -114,6 +149,18 @@ h2{
 .sendRed{
     background: #ff000038;
     padding-bottom: -25px;
+}
+.sendGreen{
+    background: rgb(89, 218, 77);
+    padding:2px;
+    color: #000000;
+    text-align: center;
+    font-weight: 900;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 2.8rem;
+    height: 2.2rem;
+    display: inline;
+    margin: .4rem;
 }
 
 nav.menu{
@@ -405,6 +452,22 @@ sub{
     grid-template-columns: 50% 2fr;
     
 
+}
+.action3{
+    padding: 10px 0;
+    
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    
+    
+    
+
+}
+.action3 > div{
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    text-align: center;
 }
 .actionRow{
     padding: 10px 0;

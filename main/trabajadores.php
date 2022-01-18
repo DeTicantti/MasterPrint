@@ -33,6 +33,32 @@ if ($_SESSION['nivel']== "1" || $_SESSION['nivel']=="2") {
     $timeobj = new DateTimeZone('America/Mexico_City');
     $timeobjeto = new DateTime('now', $timeobj);
     $timetrab = $timeobjeto->format('m-j-y');
+
+   $sqcountgod = "SELECT COUNT(*) AS buenas FROM `reparaciones` WHERE rep_daterev LIKE '01%' AND trab_id = 1 AND rep_costo > 0;";
+   $coutmasArt = $con->prepare($sqcountgod);
+    $coutmasArt->execute();
+    $coutmasArt->store_result();
+
+    $sqcountbad = "SELECT COUNT(*) AS cero FROM `reparaciones` WHERE rep_daterev LIKE '01%' AND trab_id = 1 AND rep_costo = 0;";
+   $coutcerArt = $con->prepare($sqcountbad);
+    $coutcerArt->execute();
+    $coutcerArt->store_result();
+
+    $sqcountsum = "SELECT SUM(rep_costo) FROM `reparaciones` WHERE rep_daterev LIKE '01%' AND trab_id = 1 AND rep_costo > 0";
+    $coutsumArt = $con->prepare($sqcountsum);
+    $coutsumArt->execute();
+    $coutsumArt->store_result();
+    
+    
+   /*
+SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 0 AND rep_costo = 0;
+SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 0 AND rep_costo > 0;
+SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 1;
+SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 1 AND rep_costo = 0;
+SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 1 AND rep_costo > 0;
+SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 2;
+SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 2 AND rep_costo = 0;
+SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 2 AND rep_costo > 0;";*/
     
 
     $sqAr = "SELECT rep_imp, rep_mod, rep_diagnostico, rep_costo FROM `reparaciones` WHERE trab_id = 1 AND rep_daterev like '%$timetrab%' ORDER BY rep_daterev DESC";
@@ -149,20 +175,55 @@ if ($_SESSION['nivel']== "1" || $_SESSION['nivel']=="2") {
     <h1>Arturo</h1>
     
     <?php
-    if ($resAr->num_rows>0) {
+    $coutmasArt->bind_result($maqmas);
+    $coutcerArt->bind_result($maqcer);
+    $coutsumArt->bind_result($suma);
+
+    if ($resAr->num_rows>0 && $coutmasArt->num_rows>0 && $coutcerArt->num_rows>0) {
         $resAr->bind_result($imp,$mod,$diag,$cost);
+       /*$coutmasArt->bind_result($maqmas);*/
+       
+        
         ?>
 
         <?php
+        $i=1;
         while ($resAr->fetch()){
             
             
-            echo '■ '.$imp .' '. $mod. ' '. $diag . ' $' . $cost . '</br>';
-                
+            echo '<div class="sendGreen">'.$i.' </div>'.$imp .' '. $mod. ' '. $diag . ' $' . $cost . '</br>';
+            $i++;
         }
         ?>
+         <div class="action3">
+        <div class="sendinline">
+            <h2>
+                <?php while ($coutmasArt->fetch()){
+                    echo $maqmas;
+                } ?>
+            
+             </h2>
+        </div>
+        <div class="sendinlinegreen">
+            <h3>
+                <?php while ($coutsumArt->fetch()){
+                    echo '$'. $suma;
+                } ?>
+            
+             </h3>
+        </div>
+        <div class="sendinlinered">
+            <h2>
+                <?php while ($coutcerArt->fetch()){
+                    echo $maqcer;
+                } ?>
+            
+             </h2>
+        </div>
+         </div>
         
         <?php
+        
         
     }else echo 'No ha trabajado'; 
     ?>   
