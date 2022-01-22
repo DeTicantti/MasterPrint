@@ -45,9 +45,9 @@ if (isset($_GET['id'])) {
         
     
             $sql2 = "UPDATE reparaciones SET rep_sta = ?, rep_dateF = ? WHERE rep_id =?";
-            $request = $con->prepare($sql2);
-            $request->bind_param("ssi",$status,$timetrab,$id);
-            if ($request->execute()) {
+            $requests = $con->prepare($sql2);
+            $requests->bind_param("ssi",$status,$timetrab,$id);
+            if ($requests->execute()) {
                 $res = "¡actualizado¡";
             }else $errors[] = "Ocurrio un error";
             
@@ -70,9 +70,9 @@ if (isset($_GET['id'])) {
         <h1></h1>
             <div class="comment">
                 <?php  
-                
+            
                 if (isset($request)) {
-                    if ($request) {
+                    if ($requests) {
                         if ($con->affected_rows>0) {
                             echo "<div class='sucess'><i class='fas fa-check-circle'></i> ¡A partir de este punto inicia garantia!</div>";
                         }else{
