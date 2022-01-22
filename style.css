@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url("img/circuit.jpg") no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.imagen{
+    
+    max-width: 800px;
+    margin: 0 auto;
+    margin: 50px 0 -50px 0;
+    
+}
+.imagen img{
+    margin-left: 25%;
+}
+
+#toHome{
+    font-size: 12px;
+    font-weight: bold;
+    background:#edededa4;
+    padding: 10px;
+    border-radius: 13px 0;
+    margin: 220px auto;
+    width: 240px;
+    min-height:122px;
+    
+
+}
+
+
+
+#toHome label{
+    font-size: 1.4em;
+    font-weight: 900;
+    
+    width: 80px;
+   /* float: left;*/
+    color: rgb(0, 0, 0);
+    padding: 5px 0 15px 5px;
+    margin:  5px auto;
+    border-radius: 20px;
+    
+
+}
+#toHome p{
+    font-size: 1.4em;
+    text-align: center;
+    font-weight: bolder;
+    color: rgb(255, 0, 0);
+    padding: 5px;
+    
+}
+#toHome p span{
+    
+    color: red;
+    font-size: 2.2em;
+    
+}
+
+
+#bInicio, #pass, #name{
+   /* margin: 5px auto;*/
+    border-radius: 5px;
+    margin-bottom: 10px;
+    
+
+}
+
+#name{
+    margin-left: 16px;
+}
+#pass{
+    margin-left: 16px;
+}
+
+#bInicio{
+
+    margin: 8px 0 0 95px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+@media (max-width: 600px) {
+    .imagen{
+        margin-top: 50px;
+        margin-left: 60px;
+        margin-bottom: -70px;
+        width: auto;
+        
+        
+    }
+    .imagen img{
+        margin-left: 0;
+    }
+}
+@media (min-width: 1200px) {
+    
+    .imagen img{
+        margin-left: 55%;
+    }
+}

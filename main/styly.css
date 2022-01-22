@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    width: 900px;
+    height: 900px;
+    background-color: aquamarine;
+}
+body{
+    width: 800px;
+    height: 500px;
+    background-color: blue;
+}
