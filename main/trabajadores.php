@@ -48,6 +48,7 @@ if ($_SESSION['nivel']== "1" || $_SESSION['nivel']=="2") {
     $coutsumArt = $con->prepare($sqcountsum);
     $coutsumArt->execute();
     $coutsumArt->store_result();
+    
 
 
 

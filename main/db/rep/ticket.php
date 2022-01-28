@@ -51,7 +51,7 @@ $rep2->bind_result($total);
 
 
 // create new PDF document
-$width = 150;//150
+$width = 210;//150
 $height = 320;//320
 $pageLayout = array($width, $height); //  or array($height, $width) 
 $pdf = new TCPDF('p', 'pt', $pageLayout, true, 'UTF-8', false);
@@ -116,7 +116,7 @@ $html = <<<EOD
 <i style="float:left;">-- Equipo:<span  style= "font-size:80px; text-align:right;"><br/> $imp_marca $imp_modelo </span></i><br/>
 <i style ="text-align:right;">----$timetrab---</i>
 <i style="margin-top:-40px;"><br/>-- falla: <span  style= "font-size:80px; text-align:right;"><br/> $falla</span></i>
-<i><h6 style= "text-align:right; font-size:60px;width:80px">****Estimado cliente, le informamos: --- ---tiene un lapso de 15 dias para ------retirar su equipo a partir de la ----fecha acordada, presente esta -----hoja, sin ella no se hará entrega ----de su equipo, pasando este periodo --el taller no se resposabilizara de los equipos olvidados</h6></i><i style ="text-align:right;">----$total---</i>
+<div style="width:40px;padding-left:25px; text-align:right"><i><h6 style= "font-size:60px; ">****Estimado cliente, le informamos: tiene un lapso de 15 dias para retirar su equipo a partir de la fecha acordada, presente esta hoja, sin ella no se hará entrega de su equipo, pasando este periodo el taller no se resposabilizara de los equipos olvidados</h6></i></div><i style ="text-align:center;">----$total---</i>
 EOD;
 
 // Print text using writeHTMLCell()
