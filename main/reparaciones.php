@@ -184,8 +184,9 @@ $error = array();
                                 <?php echo $diagnostico;?>
                                 </div>
                                 <div class="action grid center">
+                                    <form action=""></form>
                                 <div class="sucessmn ns">
-                                    <a href="db/rep/statusg.php?id= <?php echo $rep_id ;?>"><h3>  G</h3></a>
+                                    <a href="db/rep/statusg.php?id=<?php echo $rep_id ;?>"><h3>  G</h3></a>
                                 </div>
                                 </div>
                                 <!--<form action="db/rep/modificar.php" method="POST">

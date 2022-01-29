@@ -60,7 +60,7 @@ if (isset($_GET['id'])) {
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <META HTTP-EQUIV="REFRESH" CONTENT="1;URL=../../index.php"> 
+        <META HTTP-EQUIV="REFRESH" CONTENT=".5;URL=../../index.php"> 
         <link rel="stylesheet" href="../../style.css" type="text/css">
         <link rel="stylesheet" href="../../../fontawesomeweb/css/all.min.css" type="text/css">
     </head>

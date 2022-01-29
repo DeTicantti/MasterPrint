@@ -51,7 +51,7 @@ $rep2->bind_result($total);
 
 
 // create new PDF document
-$width = 210;//150
+$width = 200;//150
 $height = 320;//320
 $pageLayout = array($width, $height); //  or array($height, $width) 
 $pdf = new TCPDF('p', 'pt', $pageLayout, true, 'UTF-8', false);

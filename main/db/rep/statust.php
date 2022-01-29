@@ -41,7 +41,7 @@ if (isset($_POST['enviarr'])) {
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         $trab_id = $_POST['tecnico'];
-        $diagnostico = $_POST['diagnos'];
+        $diagnostico = strtolower($_POST['diagnos']);
         $status = "T";
         $costo = $_POST['costo'];
         $timeobj = new DateTimeZone('America/Mexico_City');
