@@ -34,35 +34,21 @@ if ($_SESSION['nivel']== "1" || $_SESSION['nivel']=="2") {
     $timeobjeto = new DateTime('now', $timeobj);
     $timetrab = $timeobjeto->format('m-j-y');
 
-<<<<<<< HEAD
-   $sqcountgod = "SELECT COUNT(*) AS buenas FROM `reparaciones` WHERE rep_daterev LIKE '01%' AND trab_id = 1 AND rep_costo > 0;";
-=======
    $sqcountgod = "SELECT COUNT(*) AS buenas FROM `reparaciones` WHERE rep_daterev LIKE '$timetrab%' AND trab_id = 1 AND rep_costo > 0;";
->>>>>>> 5c161aacefbbe92ffe51c6987cc63e292e002ee7
    $coutmasArt = $con->prepare($sqcountgod);
     $coutmasArt->execute();
     $coutmasArt->store_result();
 
-<<<<<<< HEAD
-    $sqcountbad = "SELECT COUNT(*) AS cero FROM `reparaciones` WHERE rep_daterev LIKE '01%' AND trab_id = 1 AND rep_costo = 0;";
-=======
     $sqcountbad = "SELECT COUNT(*) AS cero FROM `reparaciones` WHERE rep_daterev LIKE '$timetrab%' AND trab_id = 1 AND rep_costo = 0;";
->>>>>>> 5c161aacefbbe92ffe51c6987cc63e292e002ee7
    $coutcerArt = $con->prepare($sqcountbad);
     $coutcerArt->execute();
     $coutcerArt->store_result();
 
-<<<<<<< HEAD
-    $sqcountsum = "SELECT SUM(rep_costo) FROM `reparaciones` WHERE rep_daterev LIKE '01%' AND trab_id = 1 AND rep_costo > 0";
-=======
     $sqcountsum = "SELECT SUM(rep_costo) FROM `reparaciones` WHERE rep_daterev LIKE '$timetrab%' AND trab_id = 1 AND rep_costo > 0";
->>>>>>> 5c161aacefbbe92ffe51c6987cc63e292e002ee7
     $coutsumArt = $con->prepare($sqcountsum);
     $coutsumArt->execute();
     $coutsumArt->store_result();
     
-<<<<<<< HEAD
-=======
 
 
 
@@ -134,7 +120,6 @@ if ($_SESSION['nivel']== "1" || $_SESSION['nivel']=="2") {
     $coutsumHi->execute();
     $coutsumHi->store_result();
     
->>>>>>> 5c161aacefbbe92ffe51c6987cc63e292e002ee7
     
    /*
 SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 0 AND rep_costo = 0;
@@ -318,26 +303,6 @@ SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 2 AN
     <h1>Edibaldo</h1>
     
     <?php
-<<<<<<< HEAD
-    if ($resEd->num_rows>0) {
-        $resEd->bind_result($imp,$mod,$diag,$cost);
-        ?>
-
-        <?php
-        while ($resEd->fetch()){
-            
-            
-            echo '■ '.$imp .' '. $mod. ' '. $diag . ' $' . $cost . '</br>';
-                
-        }
-        ?>
-        
-        <?php
-        
-    }else echo 'No ha trabajado';   
-    ?>   
-    </br>
-=======
 
     $coutmasEd->bind_result($maqmas2);
     $coutcerEd->bind_result($maqcer2);
@@ -391,31 +356,11 @@ SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 2 AN
         
     }else echo 'No ha trabajado'; 
     ?>   
->>>>>>> 5c161aacefbbe92ffe51c6987cc63e292e002ee7
 </div>
 <div class="trabajador">
     <h1>Abimael</h1>
     
     <?php
-<<<<<<< HEAD
-    if ($resAb->num_rows>0) {
-        $resAb->bind_result($imp,$mod,$diag,$cost);
-        ?>
-
-        <?php
-        while ($resAb->fetch()){
-            
-            
-            echo '■ '.$imp .' '. $mod. ' '. $diag . ' $' . $cost . '</br>';
-                
-        }
-        ?>
-        
-        <?php
-        
-    }else echo 'No ha trabajado';   
-    ?>   
-=======
 
 
     $coutmasAb->bind_result($maqmas3);
@@ -470,31 +415,11 @@ SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 2 AN
         
     }else echo 'No ha trabajado'; 
     ?>     
->>>>>>> 5c161aacefbbe92ffe51c6987cc63e292e002ee7
 </div>
 <div class="trabajador">
     <h1>Chuy</h1>
     
     <?php
-<<<<<<< HEAD
-    if ($resCh->num_rows>0) {
-        $resCh->bind_result($imp,$mod,$diag,$cost);
-        ?>
-
-        <?php
-        while ($resCh->fetch()){
-            
-            
-            echo '■ '.$imp .' '. $mod. ' '. $diag . ' $' . $cost . '</br>';
-                
-        }
-        ?>
-        
-        <?php
-        
-    }else echo 'No ha trabajado';   
-    ?>   
-=======
     
 
     $coutmasCh->bind_result($maqmas4);
@@ -549,31 +474,11 @@ SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 2 AN
         
     }else echo 'No ha trabajado'; 
     ?>     
->>>>>>> 5c161aacefbbe92ffe51c6987cc63e292e002ee7
 </div>
 <div class="trabajador">
     <h1>Hipolito</h1>
     
     <?php
-<<<<<<< HEAD
-    if ($resHi->num_rows>0) {
-        $resHi->bind_result($imp,$mod,$diag,$cost);
-        ?>
-
-        <?php
-        while ($resHi->fetch()){
-            
-            
-            echo '■ '.$imp .' '. $mod. ' '. $diag . ' $' . $cost . '</br>';
-                
-        }
-        ?>
-        
-        <?php
-        
-    }else echo 'No ha trabajado';   
-    ?>   
-=======
     $coutmasHi->bind_result($maqmas5);
     $coutcerHi->bind_result($maqcer5);
     $coutsumHi->bind_result($suma5);
@@ -625,7 +530,6 @@ SELECT COUNT(*) FROM `reparaciones` WHERE rep_date LIKE '01%' AND trab_id = 2 AN
         
     }else echo 'No ha trabajado'; 
     ?>     
->>>>>>> 5c161aacefbbe92ffe51c6987cc63e292e002ee7
 </div>
 <div class="trabajador">
     <h1>-----</h1>
